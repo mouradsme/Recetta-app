@@ -1,0 +1,17 @@
+{% if access and loggedIn %}
+<div class="menu" id="header">
+    <div class="logo">{{L.app.title}}</div>
+    {% for item in Links.menu %}
+    <div class="item">
+        {% if item.perm %}
+        <a href="?page={{item.id}}" class="{% if Page == item.id %} selected {% endif %}">
+            {% if Settings.links.icons %} <i class="fa {{item.icon}}"></i> {% endif %}
+            {% if Settings.links.text %} {{getLang(item.title)}} {% endif %}
+            </a> {% endif %}
+    </div>
+    {% endfor %}
+    <div class="item">
+        <a href="#" id="Logout">{{L.buttons.logout}}</a>
+    </div>
+</div>
+{% endif %}

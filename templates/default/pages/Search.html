@@ -1,0 +1,32 @@
+{% if access and loggedIn %}
+<div class="page" id="search">
+    <div class="breadcrumbs">
+        <div>
+            <div class="">{{L.app.title}}</div>
+            <div class=""><i class="fa fa-chevron-circle-right"></i></div>
+            <div class="current">{{L.menu.search}}</div>
+        </div>
+        <h1 class="title">{{L.search.ihave}}</h1>
+        <div id="heada">
+            <input id="filter" type="search" placeholder="Filter" />
+            <div id="controls">
+                <div><label for="strictMode">{{L.search.strict}}</label> <input type="checkbox" id="strictMode" checked /></div>
+                <a href="#" id="Search">{{L.search.search}}</a>
+            </div>
+        </div>
+    </div>
+    <div id="Ingredients">
+        <div id="ingredientsList">
+            {% for Ingredient in Ingredients %}
+            <div class="ingredient" data-id="{{Ingredient.ingredient_id}}" data-name="{{Ingredient.it_ingredient_name}}">
+                <span><label for="c{{Ingredient.ingredient_id}}">{{Ingredient.it_ingredient_name}}</label></span>
+                <span><input id="c{{Ingredient.ingredient_id}}" data-id="{{Ingredient.ingredient_id}}" type="checkbox" ></span>
+            </div>
+            {% endfor %}
+        </div>
+        <div id="selected">
+
+        </div>
+    </div>
+</div>
+{% endif %}

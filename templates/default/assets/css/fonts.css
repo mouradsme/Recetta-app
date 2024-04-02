@@ -1,0 +1,20 @@
+@font-face {
+  font-family: Ubuntu;
+  src: url("../fonts/Ubuntu/Ubuntu-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: Sail;
+  src: url("../fonts/Sail/Sail-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: CroissantOne;
+  src: url("../fonts/CroissantOne/CroissantOne-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: Prague;
+  src: url("../fonts/Prague/Prague.otf") format("truetype");
+}
+@font-face {
+  font-family: Dense;
+  src: url("../fonts/Dense/Dense-Regular.otf") format("truetype");
+}/*# sourceMappingURL=fonts.css.map */

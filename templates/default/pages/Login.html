@@ -1,0 +1,33 @@
+{% if access %}
+<div class="pageContainer">
+    <div id="login-page">
+        <div class="titles">
+            <h1 class="subtitle ">{{L.app.title}}<i class="trademark fa-registered fa"></i></h1>
+            <h3 class="title">{{L.login.title}}</h3>
+        </div>
+        <form class="form 1-col" autocomplete="chrome-off">
+            <input name="username" class="hide">
+            <input name="password" type="password" class="hide">
+
+            <input type="text" id="username" placeholder="{{L.login.labels.username}}" autocomplete="new-usernamea" />
+            <input type="password" id="password" placeholder="{{L.login.labels.password}}" autocomplete="new-password" />
+
+            <a class="btn default-btn login-btn" id="Login" href="#">{{L.login.buttons.login}}
+                <span></span><span></span><span></span><span></span>
+            </a>
+            <div class="sprites">
+            </div>
+            <div class="notice">
+
+            </div>
+            <div class="lds-ellipsis spinner">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+        </form>
+    </div>
+</div>
+{% endif %}

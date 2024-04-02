@@ -1,0 +1,24 @@
+{% if access and loggedIn %}
+<div class="page" id="categories">
+    <div class="breadcrumbs">
+        <div>
+            <div class="">{{L.app.title}}</div>
+            <div class=""><i class="fa fa-chevron-circle-right"></i></div>
+            <div class="current">{{L.menu.categories}}</div>
+        </div>
+    </div>
+    <div class="categories-container">
+        <h1 class="title">{{L.recipes.titles.categories}}</h1>
+        <div class="categories">
+            {% for Category in Categories %}
+            <a class="category" href="?page=category&id={{Category.id}}">
+                <div class="category-name">{{Category.name}}</div>
+                <div class="category-rating">{{Category.size}} Recipe(s)</div>
+            </a>
+            {% endfor %}
+
+        </div>
+    </div>
+
+</div>
+{% endif %}

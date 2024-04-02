@@ -1,0 +1,43 @@
+{% if access and loggedIn %}
+<div class="page" id="home">
+    <div class="breadcrumbs">
+        <div>
+            <div class="">{{L.app.title}}</div>
+            <div class=""><i class="fa fa-chevron-circle-right"></i></div>
+            <div class="current">{{L.menu.home}}</div>
+        </div>
+    </div>
+    <div class="slider-container">
+        <h1 class="title">{{L.recipes.titles.random}}</h1>
+        <div id="slides" class="owl-carousel carousel">
+            {% for Recipe in Recipes %}
+            <a data-id="{{Recipe.recipe_id}}" class="recipe recipe-item carousel-item" href="#" data-image="{{Recipe.rt_recipe_image}}">
+                <div class="recipe-name">{{Recipe.rt_recipe_name}}</div>
+                <div class="recipe-rating">
+                    {% if Recipe.recipe_rating > 0 %} {% for i in 1..Recipe.recipe_rating %}
+                    <i class="fa fa-star"></i> {% endfor %} {% else %} N/A {% endif %}
+
+                </div>
+            </a>
+            {% endfor %}
+
+        </div>
+    </div>
+    <div class="slider-container">
+        <h1 class="title">{{L.recipes.titles.latest}}</h1>
+        <div id="slides2" class="owl-carousel carousel">
+            {% for Recipe in Latest %}
+            <a data-id="{{Recipe.recipe_id}}" class="recipe recipe-item carousel-item" href="#" data-image="{{Recipe.rt_recipe_image}}">
+                <div class="recipe-name">{{Recipe.rt_recipe_name}}</div>
+                <div class="recipe-rating">
+                    {% if Recipe.recipe_rating > 0 %} {% for i in 1..Recipe.recipe_rating %}
+                    <i class="fa fa-star"></i> {% endfor %} {% else %} N/A {% endif %}
+
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+{% endif %}

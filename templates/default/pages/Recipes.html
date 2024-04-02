@@ -1,0 +1,37 @@
+{% if access and loggedIn %}
+<div class="page" id="recipes">
+    <div class="breadcrumbs">
+        <div>
+            <div class="">{{L.app.title}}</div>
+            <div class=""><i class="fa fa-chevron-circle-right"></i></div>
+            <div class="current">{{L.menu.recipes}}</div>
+        </div>
+    </div>
+    <div class="slider-container">
+        <h1 class="title">
+            {% if Category.ct_category_name |length > 0 %} {{Category.ct_category_name}} {% else %} {{L.recipes.titles.recipes}} {% endif %}
+        </h1>
+        <div class="recipes" class=" carousel">
+            {% for Recipe in Recipes %}
+            <a data-id="{{Recipe.recipe_id}}" class="recipe recipe-item" href="#" data-image="{{Recipe.rt_recipe_image}}">
+                <div class="recipe-name">{{Recipe.rt_recipe_name}}</div>
+                <div class="recipe-rating">
+                    {% if Recipe.recipe_rating > 0 %} {% for i in 1..Recipe.recipe_rating %}
+                    <i class="fa fa-star"></i> {% endfor %} {% else %} N/A {% endif %}
+
+                </div>
+            </a>
+            {% endfor %} {% if Current > 0 %}
+            <a class="recipe recipe-item nextPage" href="?page={{Page}}&id={{id}}&p={{Current - 1}}">
+                <div class="next-page">Previous</div>
+            </a>
+            {% endif %}
+            <a class="recipe recipe-item nextPage" href="?page={{Page}}&id={{id}}&p={{Current + 1}}">
+                <div class="next-page">Next</div>
+            </a>
+
+        </div>
+    </div>
+
+</div>
+{% endif %}

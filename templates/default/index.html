@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    {% include 'sections/Head.html' %}
+
+    <script type="text/javascript">
+        window.currentPage = "{{content}}";
+    </script>
+</head>
+
+<body>
+
+    {% include 'sections/Header.html' %} {% if content == 'login' %} {% include 'pages/Login.html' %} {% else %} {% include 'pages/' ~ content ~ '.html' %} {% endif %} {% include 'sections/Footer.html' %} {% include 'sections/Foot.html' %}
+
+    <div id="modal">
+        <span id="hideModal" class="fa fa-times-circle-o"></span>
+        <div id="modal-recipe">
+            <div>
+                <h1 class="title">{{L.recipes.labels.ingredients}}</h1>
+                <div id="recipe-ingredients">
+
+                </div>
+            </div>
+            <div>
+                <h1 class="title">{{L.recipes.labels.instructions}}</h1>
+                <div id="recipe-meta">
+                    <div>
+
+                        <span class="fa fa-clock-o"></span>
+                        <div id="recipe-duration"></div>
+                    </div>
+                    <div>
+                        <span class="fa fa-code-fork"></span>
+                        <div id="recipe-kcals"></div>
+
+                    </div>
+                </div>
+                <div id="recipe-prep"></div>
+                <div id="recipe-text">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

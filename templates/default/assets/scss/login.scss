@@ -1,0 +1,220 @@
+@import "./base/colors";
+#login-page {
+    background-color: $bgcolor2;
+    display: grid;
+    width: 700px;
+    height: 500px;
+    place-content: center;
+    place-items: center;
+    color: $secondColor;
+    margin: auto;
+    border-radius: 10px/12px;
+    box-shadow: 3px 5px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 3px 5px 7px rgba(0, 0, 0, 0.3);
+}
+
+.pageContainer {
+    display: grid;
+    place-content: center;
+    place-items: center;
+}
+
+.titles {
+    margin-bottom: 20px;
+}
+
+.title {
+    color: $accentColor;
+    text-transform: capitalize;
+    text-align: center;
+    margin: 0;
+    font-size: 36px;
+}
+
+.subtitle {
+    color: $secondColor;
+    text-transform: capitalize;
+    text-align: center;
+    margin: 0;
+    font-size: 22px;
+    position: relative;
+    .trademark {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        font-size: 18px;
+    }
+}
+
+.form {
+    display: grid;
+    width: 300px;
+    position: relative;
+    &>input {
+        outline: none;
+        padding: 13px;
+        background-color: rgba(255, 153, 102, 0.3);
+        color: $secondColor;
+        border: none;
+        width: 100%;
+        margin-top: 5px;
+        font-weight: bold;
+        font-size: 16px;
+        &::placeholder {
+            color: $secondColor;
+        }
+    }
+}
+
+.login-btn {
+    margin: auto;
+    margin-top: 10px;
+}
+
+#Login {
+    border-radius: 10px/11px;
+    position: relative;
+    overflow: hidden;
+    transition: 0.5s all ease-in-out;
+    &:hover {
+        color: $secondColor;
+    }
+    &>span {
+        position: absolute;
+        width: 25%;
+        height: 100%;
+        background-color: rgb(107, 14, 14);
+        transform: translateY(100%);
+        left: calc((var(--n) - 1) * 25%);
+        transition: 0.2s;
+        transition-delay: calc((var(--n) - 1) * 0.1s);
+        mix-blend-mode: overlay;
+    }
+    &:hover span {
+        transform: translateY(0);
+    }
+    & span:nth-child(1) {
+        border-radius: 10px 0 0 10px;
+        --n: 1;
+    }
+    & span:nth-child(2) {
+        --n: 2;
+    }
+    & span:nth-child(3) {
+        --n: 3;
+    }
+    & span:nth-child(4) {
+        --n: 4;
+        border-radius: 0 10px 10px 0;
+    }
+}
+
+$idle: "../../assets/images/bunny.gif";
+$hUsername: "../../assets/images/cat-1.gif";
+$hPassword: "../../assets/images/cat-2.gif";
+$hLogin: "../../assets/images/dinosaur.gif";
+#username:hover+#password+#Login+.sprites {
+    bottom: 260px;
+    background: url($hUsername) center no-repeat;
+    background-size: contain;
+}
+
+#password:hover+#Login+.sprites {
+    bottom: 275px;
+    background: url($hPassword) center no-repeat;
+    background-size: contain;
+}
+
+#Login:hover+.sprites {
+    bottom: 275px;
+    background: url($hLogin) center no-repeat;
+    background-size: contain;
+}
+
+.sprites {
+    content: " ";
+    position: absolute;
+    left: 75px;
+    bottom: 230px;
+    background: url($idle) center no-repeat;
+    background-size: contain;
+    display: grid;
+    height: 120px;
+    width: 150px;
+}
+
+.notice {
+    padding: 10px;
+    text-align: center;
+    display: grid;
+    height: 18px;
+    color: $accentColor;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.lds-ellipsis {
+    visibility: hidden;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    left: calc(50% - 40px);
+}
+
+.lds-ellipsis div {
+    position: absolute;
+    top: -13px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #fff;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.lds-ellipsis div:nth-child(1) {
+    left: 8px;
+    animation: lds-ellipsis1 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(2) {
+    left: 8px;
+    animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(3) {
+    left: 32px;
+    animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(4) {
+    left: 56px;
+    animation: lds-ellipsis3 0.6s infinite;
+}
+
+@keyframes lds-ellipsis1 {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes lds-ellipsis3 {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes lds-ellipsis2 {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(24px, 0);
+    }
+}
